@@ -3,7 +3,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
 
 # Load dataset
-df = pd.read_csv("./tickets.csv")
+df = pd.read_csv("./datasets/tickets.csv")
 
 # Input and target
 X = df["ticket"]

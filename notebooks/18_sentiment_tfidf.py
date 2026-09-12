@@ -2,7 +2,7 @@ import pandas as pd
 import re
 from sklearn.feature_extraction.text import TfidfVectorizer
 
-df = pd.read_csv("./datasets/priority_tickets.csv")
+df = pd.read_csv("./datasets/sentiment_tickets.csv")
 
 def clean_text(text):
     text = text.lower()

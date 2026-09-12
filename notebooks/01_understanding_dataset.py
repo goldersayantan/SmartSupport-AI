@@ -1,7 +1,7 @@
 import pandas as pd
 import re
 
-df = pd.read_csv("./tickets.csv")
+df = pd.read_csv("./datasets/tickets.csv")
 
 # Convert text to lowercase
 df["clean_ticket"] = df["ticket"].str.lower()

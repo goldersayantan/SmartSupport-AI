@@ -1,21 +1,22 @@
 import pandas as pd
 import re
 
-df = pd.read_csv("./datasets/priority_tickets.csv")
+# Load dataset
+df = pd.read_csv("./datasets/sentiment_tickets.csv")
 
 print(df.head())
-print("Number of rows:", df.shape[0])
+print("\nNumber of rows:", df.shape[0])
 print("Number of columns:", df.shape[1])
-
+print("\nColumns:")
 print(df.columns)
 
-print("\nPriority distribution:")
-print(df["priority"].value_counts())
+print("\nSentiment Distribution:")
+print(df["sentiment"].value_counts())
 
-print("\nMissing values:")
+print("\nMissing Values:")
 print(df.isnull().sum())
 
-print("\nDuplicate rows:", df.duplicated().sum())
+print("\nDuplicate Rows:", df.duplicated().sum())
 
 def clean_text(text):
     text = text.lower()

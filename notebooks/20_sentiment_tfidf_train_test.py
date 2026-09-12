@@ -2,14 +2,9 @@ import pandas as pd
 import re
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import (
-    accuracy_score,
-    classification_report,
-    confusion_matrix
-)
 
-df = pd.read_csv("./datasets/priority_tickets.csv")
+df = pd.read_csv("./datasets/sentiment_tickets.csv")
+
 
 def clean_text(text):
     text = text.lower()
@@ -20,7 +15,7 @@ def clean_text(text):
 df["cleaned_ticket"] = df["ticket"].apply(clean_text)
 
 X = df["cleaned_ticket"]
-y = df["priority"]
+y = df["sentiment"]
 
 X_train, X_test, y_train, y_test = train_test_split(
     X,
@@ -34,13 +29,8 @@ tfidf = TfidfVectorizer()
 X_train_tfidf = tfidf.fit_transform(X_train)
 X_test_tfidf = tfidf.transform(X_test)
 
-model = LogisticRegression(max_iter=1000)
-model.fit(X_train_tfidf, y_train)
-predictions = model.predict(X_test_tfidf)
-
-accuracy = accuracy_score(y_test, predictions)
-print("Accuracy:", accuracy)
-print("\nClassification Report:")
-print(classification_report(y_test, predictions))
-print("\nConfusion Matrix:")
-print(confusion_matrix(y_test, predictions))
+print("Training data shape:", X_train_tfidf.shape)
+print("Testing data shape:", X_test_tfidf.shape)
+print("Number of features:", len(tfidf.get_feature_names_out()))
+print("\nFirst 20 features:")
+print(tfidf.get_feature_names_out()[:20])

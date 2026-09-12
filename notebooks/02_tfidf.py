@@ -1,7 +1,7 @@
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 
-df = pd.read_csv("./tickets.csv")
+df = pd.read_csv("./datasets/tickets.csv")
 
 # text preprocessing
 df["clean_ticket"] = df["ticket"].str.lower()

@@ -2,7 +2,7 @@ import pandas as pd
 import re
 from sklearn.model_selection import train_test_split
 
-df = pd.read_csv("./datasets/priority_tickets.csv")
+df = pd.read_csv("./datasets/sentiment_tickets.csv")
 
 def clean_text(text):
     text = text.lower()
@@ -13,7 +13,7 @@ def clean_text(text):
 df["cleaned_ticket"] = df["ticket"].apply(clean_text)
 
 X = df["cleaned_ticket"]
-y = df["priority"]
+y = df["sentiment"]
 
 X_train, X_test, y_train, y_test = train_test_split(
     X,
@@ -26,7 +26,7 @@ X_train, X_test, y_train, y_test = train_test_split(
 print("Total samples:", len(df))
 print("Training samples:", len(X_train))
 print("Testing samples:", len(X_test))
-print("\nTraining priority distribution:")
+print("\nTraining sentiment distribution:")
 print(y_train.value_counts())
-print("\nTesting priority distribution:")
+print("\nTesting sentiment distribution:")
 print(y_test.value_counts())

@@ -4,7 +4,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
 
-df = pd.read_csv("./datasets/priority_tickets.csv")
+df = pd.read_csv("./datasets/sentiment_tickets.csv")
 
 def clean_text(text):
     text = text.lower()
@@ -15,7 +15,7 @@ def clean_text(text):
 df["cleaned_ticket"] = df["ticket"].apply(clean_text)
 
 X = df["cleaned_ticket"]
-y = df["priority"]
+y = df["sentiment"]
 
 X_train, X_test, y_train, y_test = train_test_split(
     X,
@@ -34,12 +34,12 @@ model = LogisticRegression(max_iter=1000)
 model.fit(X_train_tfidf, y_train)
 
 new_tickets = [
-    "I need to change the email linked to my account",
-    "My parcel has been delayed for three days",
-    "There is a transaction on my card that I don't recognize",
-    "How do I update my profile information?",
-    "My shipment is still in transit",
-    "Someone made a payment using my account"
+    "I am extremely happy with the service",
+    "My payment failed and I am very angry",
+    "Can you tell me where my package is?",
+    "Thank you for resolving my issue quickly",
+    "This is a terrible experience and I am frustrated",
+    "I need information about changing my account details"
 ]
 
 new_tickets_cleaned = [
@@ -54,5 +54,5 @@ print("\nPredictions for new tickets:\n")
 
 for ticket, prediction in zip(new_tickets, predictions):
     print("Ticket:", ticket)
-    print("Predicted Priority:", prediction)
+    print("Predicted Sentiment:", prediction)
     print("-" * 60)

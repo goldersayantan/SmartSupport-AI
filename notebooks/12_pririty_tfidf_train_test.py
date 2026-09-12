@@ -3,7 +3,7 @@ import re
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
 
-df = pd.read_csv("priority_tickets.csv")
+df = pd.read_csv("./datasets/priority_tickets.csv")
 
 
 def clean_text(text):

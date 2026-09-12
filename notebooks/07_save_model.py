@@ -4,7 +4,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
 
-df = pd.read_csv("./tickets.csv")
+df = pd.read_csv("./datasets/tickets.csv")
 
 # Input and target
 X = df["ticket"]
@@ -34,13 +34,13 @@ model.fit(X_train_tfidf, y_train)
 # Save TF-IDF Vectorizer
 joblib.dump(
     vectorizer,
-    "tfidf_vectorizer.pkl"
+    "category_tfidf_vectorizer.pkl"
 )
 
 # Save ML Model
 joblib.dump(
     model,
-    "ticket_category_model.pkl"
+    "category_model.pkl"
 )
 
 print("Model and TF-IDF vectorizer saved successfully!")

@@ -1,7 +1,7 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
 
-df = pd.read_csv("./tickets.csv")
+df = pd.read_csv("./datasets/tickets.csv")
 
 # Input and target
 X = df["ticket"]
