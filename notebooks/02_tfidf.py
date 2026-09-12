@@ -3,14 +3,11 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 
 df = pd.read_csv("./datasets/tickets.csv")
 
-# text preprocessing
 df["clean_ticket"] = df["ticket"].str.lower()
 
-# TF-IDF vectorizer
 vectorizer = TfidfVectorizer()
 X = vectorizer.fit_transform(df["clean_ticket"])
 
-# Inspect the result
 print("Number of tickets: ", X.shape[0])
 print("Number of features: ", X.shape[1])
 

@@ -2,16 +2,10 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
 
-# Load dataset
 df = pd.read_csv("./datasets/tickets.csv")
 
-# Input and target
 X = df["ticket"]
 y = df["category"]
-
-# -----------------------------
-# Train/Test Split
-# -----------------------------
 
 X_train, X_test, y_train, y_test = train_test_split(
     X,
@@ -21,21 +15,10 @@ X_train, X_test, y_train, y_test = train_test_split(
     stratify=y
 )
 
-# -----------------------------
-# Create TF-IDF Vectorizer
-# -----------------------------
-
 vectorizer = TfidfVectorizer()
 
-# Learn TF-IDF from training data
 X_train_tfidf = vectorizer.fit_transform(X_train)
-
-# Convert test data using the same TF-IDF vocabulary
 X_test_tfidf = vectorizer.transform(X_test)
-
-# -----------------------------
-# Inspect results
-# -----------------------------
 
 print("Training tickets:", X_train.shape[0])
 print("Testing tickets:", X_test.shape[0])

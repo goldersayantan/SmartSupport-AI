@@ -1,7 +1,6 @@
 import pandas as pd
 import re
 
-# Load dataset
 df = pd.read_csv("./datasets/sentiment_tickets.csv")
 
 print(df.head())
