@@ -25,7 +25,9 @@ X_train, X_test, y_train, y_test = train_test_split(
     stratify=y
 )
 
-tfidf = TfidfVectorizer()
+tfidf = TfidfVectorizer(
+    ngram_range=(1, 2)
+)
 
 X_train_tfidf = tfidf.fit_transform(X_train)
 
@@ -33,26 +35,41 @@ model = LogisticRegression(max_iter=1000)
 
 model.fit(X_train_tfidf, y_train)
 
-new_tickets = [
-    "I am extremely happy with the service",
-    "My payment failed and I am very angry",
-    "Can you tell me where my package is?",
-    "Thank you for resolving my issue quickly",
-    "This is a terrible experience and I am frustrated",
-    "I need information about changing my account details"
+test_tickets = [
+    "My package has been delayed for five days",
+    "I was charged twice for the same purchase",
+    "My payment failed but money was deducted from my bank account",
+    "I was charged for my subscription even though I cancelled it",
+    "My refund has not arrived yet",
+    "The website keeps crashing",
+    "I cannot log into my account",
+    
+    "How can I change my email address?",
+    "Where can I track my package?",
+    "What is the refund policy?",
+    "How do I cancel my order?",
+    "Where can I see my payment history?",
+    
+    "My package arrived on time",
+    "My payment was completed successfully",
+    "The support team solved my problem",
+    "I received my refund successfully",
+    "Everything is working perfectly now"
 ]
 
-new_tickets_cleaned = [
+cleaned_tests = [
     clean_text(ticket)
-    for ticket in new_tickets
+    for ticket in test_tickets
 ]
 
-new_tickets_tfidf = tfidf.transform(new_tickets_cleaned)
+test_tfidf = tfidf.transform(cleaned_tests)
 
-predictions = model.predict(new_tickets_tfidf)
-print("\nPredictions for new tickets:\n")
+predictions = model.predict(test_tfidf)
 
-for ticket, prediction in zip(new_tickets, predictions):
-    print("Ticket:", ticket)
-    print("Predicted Sentiment:", prediction)
-    print("-" * 60)
+print("Real-World Sentiment Tests")
+print("=" * 50)
+
+for ticket, prediction in zip(test_tickets, predictions):
+    print(f"Ticket: {ticket}")
+    print(f"Predicted Sentiment: {prediction}")
+    print("-" * 50)

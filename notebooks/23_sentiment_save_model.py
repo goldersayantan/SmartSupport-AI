@@ -32,12 +32,11 @@ X_train_tfidf = tfidf.fit_transform(X_train)
 model = LogisticRegression(max_iter=1000)
 model.fit(X_train_tfidf, y_train)
 
-with open("sentiment_tfidf_vectorizer.pkl", "wb") as file:
+with open("./models/sentiment_tfidf_vectorizer.pkl", "wb") as file:
     pickle.dump(tfidf, file)
 
-with open("sentiment_model.pkl", "wb") as file:
+with open("./models/sentiment_model.pkl", "wb") as file:
     pickle.dump(model, file)
-
 
 print("sentiment model saved successfully!")
 print("Saved: sentiment_tfidf_vectorizer.pkl")

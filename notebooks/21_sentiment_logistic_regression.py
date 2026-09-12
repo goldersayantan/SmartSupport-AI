@@ -27,33 +27,28 @@ X_train, X_test, y_train, y_test = train_test_split(
     stratify=y
 )
 
-tfidf = TfidfVectorizer()
+tfidf = TfidfVectorizer(
+    ngram_range=(1, 2)
+)
+
 X_train_tfidf = tfidf.fit_transform(X_train)
 X_test_tfidf = tfidf.transform(X_test)
 
-model = LogisticRegression(max_iter=1000)
+model = LogisticRegression(
+    max_iter=1000
+)
+
 model.fit(X_train_tfidf, y_train)
-predictions = model.predict(X_test_tfidf)
 
-print("First 20 predictions:\n")
-
-for actual, predicted in zip(y_test.iloc[:20],predictions[:20]):
-    print("Actual:", actual, "| Predicted:", predicted)
-
-# Predict all test samples
 y_pred = model.predict(X_test_tfidf)
-
-# Accuracy
-accuracy = accuracy_score(y_test, y_pred)
 
 print("Sentiment Analysis Model")
 print("------------------------")
-print(f"Accuracy: {accuracy:.2f}")
 
-# Classification report
+print(f"Accuracy: {accuracy_score(y_test, y_pred):.2f}")
+
 print("\nClassification Report:")
 print(classification_report(y_test, y_pred))
 
-# Confusion matrix
 print("\nConfusion Matrix:")
 print(confusion_matrix(y_test, y_pred))

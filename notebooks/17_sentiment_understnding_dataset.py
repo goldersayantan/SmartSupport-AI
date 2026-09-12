@@ -9,6 +9,9 @@ print("Number of columns:", df.shape[1])
 print("\nColumns:")
 print(df.columns)
 
+print("\nSample Tickets:")
+print(df[["ticket", "sentiment"]].head(20))
+
 print("\nSentiment Distribution:")
 print(df["sentiment"].value_counts())
 
@@ -27,3 +30,35 @@ df["cleaned_ticket"] = df["ticket"].apply(clean_text)
 
 print("\nOriginal vs Cleaned Tickets:")
 print(df[["ticket", "cleaned_ticket"]].head(10))
+
+print("\nNegative examples:")
+print(df[df["sentiment"] == "Negative"]["ticket"].head(15).to_string(index=False))
+
+print("\nPositive examples:")
+print(df[df["sentiment"] == "Positive"]["ticket"].head(15).to_string(index=False))
+
+print("\nNeutral examples:")
+print(df[df["sentiment"] == "Neutral"]["ticket"].head(15).to_string(index=False))
+
+keywords = [
+    "payment",
+    "charged",
+    "deducted",
+    "refund",
+    "delayed",
+    "late",
+    "cancel",
+    "crash",
+    "failed",
+    "wrong",
+    "damaged"
+]
+
+print("\nKeyword Sentiment Analysis")
+print("=" * 60)
+
+for keyword in keywords:
+    subset = df[df["ticket"].str.lower().str.contains(keyword, na=False)]
+
+    print(f"\nKeyword: {keyword}")
+    print(subset["sentiment"].value_counts())
