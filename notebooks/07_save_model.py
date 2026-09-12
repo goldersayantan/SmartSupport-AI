@@ -7,7 +7,7 @@ from sklearn.linear_model import LogisticRegression
 
 
 # Load dataset
-df = pd.read_csv("./datasets/tickets.csv")
+df = pd.read_csv("./datasets/category_tickets.csv")
 
 X = df["ticket"]
 y = df["category"]

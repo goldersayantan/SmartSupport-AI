@@ -2,7 +2,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
 
-df = pd.read_csv("./datasets/tickets.csv")
+df = pd.read_csv("./datasets/category_tickets.csv")
 
 X = df["ticket"]
 y = df["category"]

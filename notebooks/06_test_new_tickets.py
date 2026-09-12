@@ -3,7 +3,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
 
-df = pd.read_csv("./datasets/tickets.csv")
+df = pd.read_csv("./datasets/category_tickets.csv")
 
 X = df["ticket"]
 y = df["category"]
@@ -30,7 +30,27 @@ new_tickets = [
     "The application crashes whenever I try to open it",
     "I want to stop my current order",
     "I received a damaged product",
-    "I want to upgrade my current plan"
+    "I want to upgrade my current plan",
+    "Where is my order? It was supposed to arrive yesterday",
+    "Where is my package?",
+    "My order has not arrived yet",
+    "When will my package arrive?",
+    "My delivery is late",
+    "The tracking information has not updated",
+    
+    "I was charged twice for the same purchase",
+    "My payment failed but the money was deducted",
+    "There is a transaction on my card that I do not recognize",
+    
+    "I need to change my email address",
+    "I forgot my password",
+    
+    "I want a refund for my purchase",
+    "I want to cancel my order",
+    
+    "The website keeps crashing",
+    "I cannot access my premium subscription",
+    "My entire order is missing from my account"
 ]
 
 new_tickets_tfidf = vectorizer.transform(new_tickets)
