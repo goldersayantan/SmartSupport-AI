@@ -122,6 +122,23 @@ textarea {
    TICKET CARD
 ========================= */
 
+.name-input {
+  width: 100%;
+  padding: 14px 16px;
+
+  border: 1px solid #dfe1e7;
+  border-radius: 10px;
+
+  font-size: 15px;
+  margin-bottom: 12px;
+
+  outline: none;
+}
+
+.name-input:focus {
+  border-color: #888d98;
+}
+
 .ticket-card {
   background: white;
   border: 1px solid #e5e6eb;
@@ -536,4 +553,88 @@ footer {
     flex-direction: column;
   }
 
+}
+
+.admin-tickets {
+  margin-top: 32px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+}
+
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.admin-header h2 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.admin-header p {
+  margin: 6px 0 0;
+  color: #6b7280;
+}
+
+.ticket-count {
+  background: #f3f4f6;
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 900px;
+}
+
+th {
+  text-align: left;
+  padding: 14px 12px;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #6b7280;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+td {
+  padding: 16px 12px;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 14px;
+}
+
+tbody tr:hover {
+  background: #fafafa;
+}
+
+.ticket-text {
+  max-width: 280px;
+  color: #4b5563;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 20px;
+  background: #e8f5e9;
+  color: #2e7d32;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.empty-tickets {
+  text-align: center;
+  padding: 40px;
+  color: #6b7280;
 }
