@@ -102,3 +102,34 @@ def get_tickets(
         }
         for ticket in tickets
     ]
+
+class StatusUpdate(BaseModel):
+    status: str
+
+
+@app.patch("/tickets/{ticket_id}/status")
+def update_ticket_status(
+    ticket_id: int,
+    request: StatusUpdate,
+    db: Session = Depends(get_db)
+):
+
+    ticket = db.query(Ticket).filter(
+        Ticket.id == ticket_id
+    ).first()
+
+    if not ticket:
+        return {
+            "error": "Ticket not found"
+        }
+
+    ticket.status = request.status
+
+    db.commit()
+    db.refresh(ticket)
+
+    return {
+        "message": "Ticket status updated successfully",
+        "id": ticket.id,
+        "status": ticket.status
+    }

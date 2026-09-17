@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./App.css";
+import "./CustomerPage.css";
 
 function CustomerPage() {
   const [ticket, setTicket] = useState("");

@@ -1,0 +1,682 @@
+/* =========================
+   CUSTOMER PAGE
+========================= */
+
+.welcome {
+  margin-bottom: 26px;
+}
+
+.welcome h2 {
+  margin: 0;
+  font-size: 30px;
+  letter-spacing: -0.8px;
+}
+
+.welcome p {
+  margin: 8px 0 0;
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+
+/* =========================
+   TICKET CARD
+========================= */
+
+.ticket-card {
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 28px;
+
+  box-shadow: var(--shadow-lg);
+
+  transition:
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+.ticket-card:hover {
+  box-shadow:
+    0 20px 50px rgba(20, 24, 40, 0.11);
+}
+
+
+/* =========================
+   SECTION TITLE
+========================= */
+
+.section-title {
+  margin-bottom: 20px;
+}
+
+.section-title h3 {
+  margin: 0;
+
+  font-size: 17px;
+  font-weight: 750;
+}
+
+.section-title p {
+  margin: 5px 0 0;
+
+  color: var(--text-secondary);
+
+  font-size: 13px;
+}
+
+
+/* =========================
+   NAME INPUT
+========================= */
+
+.name-input {
+  width: 100%;
+
+  margin-bottom: 14px;
+
+  padding: 14px 15px;
+
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+
+  background: #fafbff;
+
+  color: var(--text-primary);
+
+  font-size: 14px;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.name-input::placeholder,
+.ticket-card textarea::placeholder {
+  color: #a3a9b8;
+}
+
+.name-input:focus,
+.ticket-card textarea:focus {
+  outline: none;
+
+  border-color: var(--primary);
+
+  background: white;
+
+  box-shadow:
+    0 0 0 4px rgba(99, 91, 255, 0.10);
+}
+
+
+/* =========================
+   TEXTAREA
+========================= */
+
+.ticket-card textarea {
+  width: 100%;
+
+  min-height: 170px;
+
+  resize: vertical;
+
+  padding: 16px;
+
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+
+  background: #fafbff;
+
+  color: var(--text-primary);
+
+  font-size: 14px;
+  line-height: 1.6;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+
+/* =========================
+   INPUT FOOTER
+========================= */
+
+.input-footer {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  margin-top: 14px;
+}
+
+.character-count {
+  color: var(--text-muted);
+
+  font-size: 12px;
+}
+
+
+/* =========================
+   ANALYZE BUTTON
+========================= */
+
+.analyze-button {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  min-width: 170px;
+
+  padding: 13px 18px;
+
+  border: none;
+  border-radius: var(--radius-md);
+
+  background:
+    linear-gradient(
+      135deg,
+      #635bff,
+      #7c5cff
+    );
+
+  color: white;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 7px 18px rgba(99, 91, 255, 0.24);
+}
+
+.analyze-button:hover:not(:disabled) {
+  box-shadow:
+    0 11px 24px rgba(99, 91, 255, 0.32);
+}
+
+.analyze-button:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.analyze-button span:last-child {
+  font-size: 17px;
+}
+
+
+/* =========================
+   SPINNER
+========================= */
+
+.spinner {
+  width: 15px;
+  height: 15px;
+
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  border-top-color: white;
+
+  border-radius: 50%;
+
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* =========================
+   ERROR
+========================= */
+
+.error {
+  margin: 16px 0 0;
+
+  padding: 12px 14px;
+
+  border-radius: var(--radius-md);
+
+  background: #fff1f0;
+
+  border: 1px solid #ffd8d5;
+
+  color: var(--danger);
+
+  font-size: 13px;
+}
+
+
+/* =========================
+   EXAMPLES
+========================= */
+
+.examples {
+  margin-top: 22px;
+}
+
+.examples-title {
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  margin-bottom: 11px;
+
+  color: var(--text-secondary);
+
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.example-list {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 9px;
+}
+
+.example-button {
+  padding: 9px 13px;
+
+  border: 1px solid var(--border);
+
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.8);
+
+  color: var(--text-secondary);
+
+  font-size: 12px;
+
+  cursor: pointer;
+
+  transition:
+    color 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.example-button:hover {
+  color: var(--primary);
+
+  background: var(--primary-soft);
+
+  border-color: rgba(99, 91, 255, 0.25);
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================
+   RESULTS
+========================= */
+
+.results {
+  margin-top: 38px;
+
+  animation: resultAppear 0.4s ease;
+}
+
+@keyframes resultAppear {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================
+   RESULTS HEADER
+========================= */
+
+.results-header {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  margin-bottom: 18px;
+}
+
+.results-header h2 {
+  margin: 0;
+
+  font-size: 22px;
+
+  letter-spacing: -0.5px;
+}
+
+.results-header p {
+  margin: 5px 0 0;
+
+  color: var(--text-secondary);
+
+  font-size: 13px;
+}
+
+.success-badge {
+  display: inline-flex;
+
+  align-items: center;
+
+  padding: 8px 12px;
+
+  border-radius: 999px;
+
+  background: #ecfdf3;
+
+  border: 1px solid #c8f1da;
+
+  color: var(--success);
+
+  font-size: 11px;
+  font-weight: 700;
+
+  white-space: nowrap;
+}
+
+
+/* =========================
+   RESULT GRID
+========================= */
+
+.result-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 14px;
+}
+
+
+/* =========================
+   RESULT CARD
+========================= */
+
+.result-card {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 15px;
+
+  padding: 21px;
+
+  background: rgba(255, 255, 255, 0.95);
+
+  border: 1px solid var(--border);
+
+  border-radius: var(--radius-lg);
+
+  box-shadow: var(--shadow-sm);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.result-card:hover {
+  transform: translateY(-3px);
+
+  box-shadow: var(--shadow-md);
+
+  border-color: #dcdff0;
+}
+
+
+/* =========================
+   RESULT ICONS
+========================= */
+
+.card-icon {
+  width: 42px;
+  height: 42px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.category-icon {
+  background: #eeecff;
+  color: var(--primary);
+}
+
+.priority-icon {
+  background: #fff1f0;
+  color: var(--danger);
+}
+
+.sentiment-icon {
+  background: #ecfdf3;
+  color: var(--success);
+}
+
+.time-icon {
+  background: #eff6ff;
+  color: var(--info);
+}
+
+
+/* =========================
+   RESULT CONTENT
+========================= */
+
+.card-content {
+  min-width: 0;
+}
+
+.card-content > span {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: var(--text-muted);
+
+  font-size: 11px;
+  font-weight: 700;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.55px;
+}
+
+.card-content strong {
+  display: block;
+
+  color: var(--text-primary);
+
+  font-size: 17px;
+  font-weight: 750;
+
+  word-break: break-word;
+}
+
+.card-content small {
+  display: block;
+
+  margin-top: 5px;
+
+  color: var(--text-muted);
+
+  font-size: 11px;
+}
+
+
+/* =========================
+   BADGES
+========================= */
+
+.badge {
+  display: inline-flex !important;
+
+  width: fit-content;
+
+  padding: 5px 9px;
+
+  border-radius: 999px;
+
+  font-size: 11px !important;
+  font-weight: 750 !important;
+}
+
+
+/* Priority */
+
+.badge.high {
+  color: #d92d20 !important;
+  background: #fff1f0;
+}
+
+.badge.medium {
+  color: #b54708 !important;
+  background: #fff7e8;
+}
+
+.badge.low {
+  color: #087443 !important;
+  background: #ecfdf3;
+}
+
+
+/* Sentiment */
+
+.badge.negative {
+  color: #d92d20 !important;
+  background: #fff1f0;
+}
+
+.badge.neutral {
+  color: #475467 !important;
+  background: #f2f4f7;
+}
+
+.badge.positive {
+  color: #087443 !important;
+  background: #ecfdf3;
+}
+
+
+/* =========================
+   TICKET SUMMARY
+========================= */
+
+.ticket-summary {
+  margin-top: 14px;
+
+  padding: 19px 21px;
+
+  background: white;
+
+  border: 1px solid var(--border);
+
+  border-radius: var(--radius-lg);
+
+  box-shadow: var(--shadow-sm);
+}
+
+.ticket-summary > span {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: var(--text-muted);
+
+  font-size: 11px;
+  font-weight: 700;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.55px;
+}
+
+.ticket-summary p {
+  margin: 0;
+
+  color: var(--text-secondary);
+
+  font-size: 13px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 700px) {
+
+  .welcome h2 {
+    font-size: 25px;
+  }
+
+  .ticket-card {
+    padding: 20px;
+  }
+
+  .input-footer {
+    align-items: stretch;
+
+    flex-direction: column;
+  }
+
+  .analyze-button {
+    width: 100%;
+  }
+
+  .result-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .results-header {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+  .success-badge {
+    align-self: flex-start;
+  }
+
+  .example-list {
+    flex-direction: column;
+  }
+
+  .example-button {
+    width: 100%;
+
+    text-align: left;
+  }
+}

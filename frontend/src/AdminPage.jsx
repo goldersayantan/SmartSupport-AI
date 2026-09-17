@@ -1,22 +1,24 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 
+import DashboardStats from "./components/admin/DashboardStats";
+import CategoryExplorer from "./components/admin/CategoryExplorer";
+import CategoryDetails from "./components/admin/CategoryDetails";
+import FilteredTickets from "./components/admin/FilteredTickets";
+import { getTickets, updateTicketStatus } from "./services/api";
+import TicketDetails from "./components/admin/TicketDetails";
+
 function AdminPage() {
   const [tickets, setTickets] = useState([]);
-
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [selectedFilter, setSelectedFilter] = useState(null);
+  const [selectedTicket, setSelectedTicket] = useState(null);
+  
   const fetchTickets = async () => {
     try {
-      const response = await fetch(
-        "http://127.0.0.1:8000/tickets"
-      );
+      const data = await getTickets();
 
-      if (!response.ok) {
-        throw new Error("Failed to fetch tickets");
-      }
-
-      const data = await response.json();
       setTickets(data);
-
     } catch (err) {
       console.log("Ticket fetch error:", err);
     }
@@ -26,12 +28,58 @@ function AdminPage() {
     fetchTickets();
   }, []);
 
-  const getPriorityClass = (priority) => {
-    return priority?.toLowerCase() || "";
-  };
+  const totalTickets = tickets.length;
 
-  const getSentimentClass = (sentiment) => {
-    return sentiment?.toLowerCase() || "";
+  const openTickets = tickets.filter(
+    (ticket) => ticket.status === "Open"
+  ).length;
+
+  const inProgressTickets = tickets.filter(
+    (ticket) => ticket.status === "In Progress"
+  ).length;
+
+  const resolvedTickets = tickets.filter(
+    (ticket) => ticket.status === "Resolved"
+  ).length;
+
+  const escalatedTickets = tickets.filter(
+    (ticket) => ticket.status === "Escalated"
+  ).length;
+
+  const updateStatus = async (ticketId, newStatus) => {
+    console.log("Updating:", ticketId, newStatus);
+
+    try {
+      await updateTicketStatus(
+        ticketId,
+        newStatus
+      );
+
+      setTickets((currentTickets) =>
+        currentTickets.map((ticket) =>
+          ticket.id === ticketId
+            ? {
+                ...ticket,
+                status: newStatus
+              }
+            : ticket
+        )
+      );
+
+      setSelectedTicket((currentTicket) =>
+        currentTicket?.id === ticketId
+          ? {
+              ...currentTicket,
+              status: newStatus
+            }
+          : currentTicket
+      );
+    } catch (error) {
+      console.error(
+        "Status update error:",
+        error
+      );
+    }
   };
 
   return (
@@ -60,83 +108,48 @@ function AdminPage() {
           </div>
         </section>
 
-        <section className="admin-tickets">
-          <div className="admin-header">
-            <div>
-              <h2>All Tickets</h2>
-              <p>
-                Customer support requests
-              </p>
-            </div>
-            <span className="ticket-count">
-              {tickets.length} Tickets
-            </span>
-          </div>
+        <DashboardStats
+          totalTickets={totalTickets}
+          openTickets={openTickets}
+          inProgressTickets={inProgressTickets}
+          resolvedTickets={resolvedTickets}
+          escalatedTickets={escalatedTickets}
+        />
 
-          <div className="table-container">
-            <table>
-              <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>Customer</th>
-                  <th>Ticket</th>
-                  <th>Category</th>
-                  <th>Priority</th>
-                  <th>Sentiment</th>
-                  <th>Status</th>
-                </tr>
-              </thead>
-              
-              <tbody>
-                {tickets.map((ticket) => (
-                  <tr key={ticket.id}>
-                    <td>#{ticket.id}</td>
-                    <td>
-                      <strong>
-                        {ticket.customer_name}
-                      </strong>
-                    </td>
-                    <td className="ticket-text">
-                      {ticket.ticket}
-                    </td>
-                    <td>
-                      {ticket.category}
-                    </td>
-                    <td>
-                      <span
-                        className={`badge ${getPriorityClass(
-                          ticket.priority
-                        )}`}
-                      >
-                        {ticket.priority}
-                      </span>
-                    </td>
-                    <td>
-                      <span
-                        className={`badge ${getSentimentClass(
-                          ticket.sentiment
-                        )}`}
-                      >
-                        {ticket.sentiment}
-                      </span>
-                    </td>
-                    <td>
-                      <span className="status-badge">
-                        {ticket.status}
-                      </span>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
 
-            {tickets.length === 0 && (
-              <div className="empty-tickets">
-                No tickets available.
-              </div>
-            )}
-          </div>
-        </section>
+        <CategoryExplorer
+          tickets={tickets}
+          selectedCategory={selectedCategory}
+          setSelectedCategory={setSelectedCategory}
+        />
+
+
+        <CategoryDetails
+          tickets={tickets}
+          selectedCategory={selectedCategory}
+          selectedFilter={selectedFilter}
+          setSelectedFilter={setSelectedFilter}
+          setSelectedCategory={setSelectedCategory}
+        />
+
+        
+        <FilteredTickets
+          tickets={tickets}
+          selectedCategory={selectedCategory}
+          selectedFilter={selectedFilter}
+          setSelectedFilter={setSelectedFilter}
+          onTicketClick={setSelectedTicket}
+        />
+
+
+        {selectedTicket && (
+          <TicketDetails
+            ticket={selectedTicket}
+            onBack={() => setSelectedTicket(null)}
+            updateStatus={updateStatus}
+          />
+        )}
+
       </main>
 
       <footer>
