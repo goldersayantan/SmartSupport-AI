@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import CustomerPage from "./CustomerPage";
 import AdminPage from "./AdminPage";
+import CategoryDetailsPage from "./CategoryDetailsPage";
 
 function App() {
   return (
@@ -19,7 +20,13 @@ function App() {
           element={<AdminPage />}
         />
 
+        <Route
+          path="/admin/category/:category"
+          element={<CategoryDetailsPage />}
+        />
+
       </Routes>
+
 
     </BrowserRouter>
   );
