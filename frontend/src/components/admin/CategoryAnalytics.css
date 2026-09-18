@@ -8,51 +8,38 @@
 
 .category-analytics-header > div > span {
   display: block;
-
   margin-bottom: 5px;
-
   color: var(--primary);
-
   font-size: 10px;
   font-weight: 750;
-
   text-transform: uppercase;
   letter-spacing: 0.7px;
 }
 
 .category-analytics-header h3 {
   margin: 0;
-
   font-size: 21px;
   letter-spacing: -0.4px;
 }
 
 .category-analytics-header p {
   margin: 6px 0 0;
-
   color: var(--text-secondary);
-
   font-size: 13px;
 }
 
 .category-charts-grid {
   display: grid;
-
   grid-template-columns: repeat(2, 1fr);
-
   gap: 16px;
 }
 
 .category-chart-card {
   padding: 22px;
-
   background: rgba(255, 255, 255, 0.94);
-
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-
   box-shadow: var(--shadow-sm);
-
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease;
@@ -60,7 +47,6 @@
 
 .category-chart-card:hover {
   transform: translateY(-3px);
-
   box-shadow: var(--shadow-md);
 }
 
@@ -70,18 +56,14 @@
 
 .category-chart-card-header h4 {
   margin: 0;
-
   color: var(--text-primary);
-
   font-size: 15px;
   font-weight: 750;
 }
 
 .category-chart-card-header p {
   margin: 5px 0 0;
-
   color: var(--text-muted);
-
   font-size: 11px;
 }
 

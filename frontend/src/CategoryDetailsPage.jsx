@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 import "./CategoryDetailsPage.css";
-
 import CategoryStats from "./components/admin/CategoryStats";
 import CategoryAnalytics from "./components/admin/CategoryAnalytics";
 import CategoryTicketExplorer from "./components/admin/CategoryTicketExplorer";
@@ -16,9 +15,7 @@ import {
 function CategoryDetailsPage() {
   const { category } = useParams();
   const navigate = useNavigate();
-
   const decodedCategory = decodeURIComponent(category);
-
   const [tickets, setTickets] = useState([]);
   const [selectedTicket, setSelectedTicket] = useState(null);
   const [selectedFilter, setSelectedFilter] = useState(null);
@@ -267,6 +264,7 @@ function CategoryDetailsPage() {
           priorityData={priorityData}
           statusData={statusData}
           resolutionTimeData={resolutionTimeData}
+          onFilterSelect={setSelectedFilter}
         />
 
         <CategoryTicketExplorer

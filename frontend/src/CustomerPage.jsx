@@ -73,9 +73,7 @@ function CustomerPage() {
           <div className="logo">S</div>
           <div>
             <h1>SmartSupport AI</h1>
-            <p>
-              AI-powered customer support intelligence
-            </p>
+            <p>AI-powered customer support intelligence</p>
           </div>
         </div>
 
@@ -89,10 +87,7 @@ function CustomerPage() {
         <section className="welcome">
           <div>
             <h2>Submit a Support Ticket</h2>
-            <p>
-              Tell us about your issue and our AI will
-              automatically analyze it.
-            </p>
+            <p>Tell us about your issue and our AI willautomatically analyze it.</p>
           </div>
         </section>
 
@@ -100,9 +95,7 @@ function CustomerPage() {
           <div className="section-title">
             <div>
               <h3>Customer Ticket</h3>
-              <p>
-                Enter your support request below.
-              </p>
+              <p>Enter your support request below.</p>
             </div>
           </div>
           <input
@@ -155,7 +148,6 @@ function CustomerPage() {
         </section>
 
         <section className="examples">
-
           <div className="examples-title">
             <span>💡</span>
             Try an example
@@ -178,18 +170,14 @@ function CustomerPage() {
             )}
 
           </div>
-
         </section>
 
         {result && (
-
           <section className="results">
             <div className="results-header">
               <div>
                 <h2>AI Analysis</h2>
-                <p>
-                  Your support request has been analyzed
-                </p>
+                <p>Your support request has been analyzed</p>
               </div>
               <div className="success-badge">
                 ✓ Analysis Complete
@@ -203,13 +191,8 @@ function CustomerPage() {
                 </div>
                 <div className="card-content">
                   <span>Category</span>
-                  <strong>
-                    {result.category}
-                  </strong>
-
-                  <small>
-                    Detected issue type
-                  </small>
+                  <strong>{result.category}</strong>
+                  <small>Detected issue type</small>
                 </div>
               </div>
 
@@ -226,9 +209,7 @@ function CustomerPage() {
                   >
                     {result.priority}
                   </strong>
-                  <small>
-                    Recommended urgency
-                  </small>
+                  <small>Recommended urgency</small>
                 </div>
               </div>
 
@@ -245,9 +226,7 @@ function CustomerPage() {
                   >
                     {result.sentiment}
                   </strong>
-                  <small>
-                    Customer emotional tone
-                  </small>
+                  <small>Customer emotional tone</small>
                 </div>
               </div>
 
@@ -256,35 +235,24 @@ function CustomerPage() {
                   ◷
                 </div>
                 <div className="card-content">
-                  <span>
-                    Estimated Resolution
-                  </span>
-                  <strong>
-                    {result.resolution_time_hours} hours
-                  </strong>
-                  <small>
-                    Estimated handling time
-                  </small>
+                  <span>Estimated Resolution</span>
+                  <strong>{result.resolution_time_hours} hours</strong>
+                  <small>Estimated handling time</small>
                 </div>
               </div>
             </div>
 
             <div className="ticket-summary">
               <span>Submitted Ticket</span>
-              <p>
-                "{result.ticket}"
-              </p>
+              <p>"{result.ticket}"</p>
             </div>
           </section>
         )}
       </main>
 
       <footer>
-        <p>
-          SmartSupport AI • Intelligent Customer Support
-        </p>
+        <p>SmartSupport AI • Intelligent Customer Support</p>
       </footer>
-
     </div>
   );
 }

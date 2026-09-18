@@ -6,7 +6,6 @@
   margin-bottom: 30px;
 }
 
-
 /* =========================
    SECTION HEADING
 ========================= */
@@ -15,27 +14,21 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   margin-bottom: 16px;
 }
 
 .section-heading h2 {
   margin: 0;
-
   font-size: 20px;
   font-weight: 750;
-
   letter-spacing: -0.4px;
 }
 
 .section-heading p {
   margin: 5px 0 0;
-
   color: var(--text-secondary);
-
   font-size: 13px;
 }
-
 
 /* =========================
    CATEGORY GRID
@@ -43,12 +36,9 @@
 
 .category-grid {
   display: grid;
-
   grid-template-columns: repeat(4, 1fr);
-
   gap: 14px;
 }
-
 
 /* =========================
    CATEGORY CARD
@@ -56,27 +46,17 @@
 
 .category-card {
   position: relative;
-
   min-height: 145px;
-
   padding: 20px;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
-
   background: rgba(255, 255, 255, 0.92);
-
   border: 1px solid var(--border);
-
   border-radius: var(--radius-lg);
-
   box-shadow: var(--shadow-sm);
-
   cursor: pointer;
-
   overflow: hidden;
-
   transition:
     transform 0.22s ease,
     box-shadow 0.22s ease,
@@ -84,26 +64,18 @@
     background 0.22s ease;
 }
 
-
 /* Decorative glow */
 
 .category-card::before {
   content: "";
-
   position: absolute;
-
   width: 90px;
   height: 90px;
-
   top: -35px;
   right: -25px;
-
   border-radius: 50%;
-
   background: var(--primary-soft);
-
   opacity: 0.7;
-
   transition:
     transform 0.3s ease,
     opacity 0.3s ease;
@@ -111,10 +83,8 @@
 
 .category-card:hover::before {
   transform: scale(1.5);
-
   opacity: 1;
 }
-
 
 /* =========================
    HOVER
@@ -122,12 +92,9 @@
 
 .category-card:hover {
   transform: translateY(-5px);
-
   border-color: rgba(99, 91, 255, 0.25);
-
   box-shadow: var(--shadow-md);
 }
-
 
 /* =========================
    SELECTED
@@ -142,27 +109,19 @@
     );
 
   border-color: rgba(99, 91, 255, 0.45);
-
-  box-shadow:
-    0 10px 28px rgba(99, 91, 255, 0.12);
+  box-shadow: 0 10px 28px rgba(99, 91, 255, 0.12);
 }
 
 .category-card.selected::after {
   content: "";
-
   position: absolute;
-
   left: 0;
   top: 0;
-
   width: 4px;
   height: 100%;
-
   background: var(--primary);
-
   border-radius: 4px 0 0 4px;
 }
-
 
 /* =========================
    CATEGORY NAME
@@ -171,20 +130,13 @@
 .category-card h3 {
   position: relative;
   z-index: 1;
-
   margin: 0 0 14px;
-
   max-width: 90%;
-
   color: var(--text-primary);
-
   font-size: 14px;
-
   line-height: 1.35;
-
   font-weight: 700;
 }
-
 
 /* =========================
    COUNT
@@ -193,16 +145,11 @@
 .category-card strong {
   position: relative;
   z-index: 1;
-
   color: var(--text-primary);
-
   font-size: 30px;
-
   line-height: 1;
-
   letter-spacing: -1px;
 }
-
 
 /* =========================
    "TICKETS"
@@ -211,16 +158,11 @@
 .category-card > span {
   position: relative;
   z-index: 1;
-
   margin-top: 5px;
-
   color: var(--text-muted);
-
   font-size: 11px;
-
   font-weight: 600;
 }
-
 
 /* =========================
    RESPONSIVE
@@ -241,3 +183,119 @@
     min-height: 125px;
   }
 }
+
+.analytics-tooltip {
+  padding: 10px 12px;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: var(--shadow-md);
+}
+
+.analytics-tooltip-label {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--text-secondary);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.analytics-tooltip strong {
+  color: var(--text-primary);
+  font-size: 13px;
+}
+
+/* Chart eyebrow */
+
+.chart-eyebrow {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--primary);
+  font-size: 9px;
+  font-weight: 750;
+  text-transform: uppercase;
+  letter-spacing: 0.65px;
+}
+
+
+/* Chart empty state */
+
+.analytics-chart-empty {
+  height: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.analytics-chart-empty span {
+  display: flex;
+  width: 42px;
+  height: 42px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  border-radius: 50%;
+  background: #f8f9fc;
+  border: 1px solid var(--border);
+  font-size: 20px;
+}
+
+.analytics-chart-empty p {
+  margin: 0;
+  font-size: 12px;
+}
+
+
+/* Tooltip */
+
+.analytics-tooltip {
+  min-width: 110px;
+  padding: 10px 12px;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: var(--shadow-md);
+}
+
+.analytics-tooltip-label {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--text-secondary);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.analytics-tooltip strong {
+  color: var(--text-primary);
+  font-size: 13px;
+}
+
+/* Better chart spacing */
+
+.category-chart-card-header {
+  min-height: 58px;
+}
+
+.category-chart-container {
+  min-height: 280px;
+}
+
+
+/* Mobile chart adjustments */
+
+@media (max-width: 550px) {
+
+  .category-chart-container {
+    height: 250px;
+    min-height: 250px;
+  }
+
+  .analytics-chart-empty {
+    height: 250px;
+  }
+
+}
+

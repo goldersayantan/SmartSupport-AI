@@ -30,73 +30,41 @@ function TicketDetails({
 
         <div className="ticket-details-top">
           <div>
-            <span className="detail-label">
-              Customer
-            </span>
-
+            <span className="detail-label">Customer</span>
             <h3>{ticket.customer_name}</h3>
           </div>
 
-          <span className="ticket-status">
-            {ticket.status}
-          </span>
+          <span className="ticket-status">{ticket.status}</span>
         </div>
 
         <div className="ticket-details-message">
-          <span className="detail-label">
-            Ticket
-          </span>
-
+          <span className="detail-label">Ticket</span>
           <p>{ticket.ticket}</p>
         </div>
 
         <div className="ticket-details-grid">
-
           <div className="detail-item">
-            <span className="detail-label">
-              Category
-            </span>
-
-            <strong>
-              {ticket.category}
-            </strong>
+            <span className="detail-label">Category</span>
+            <strong>{ticket.category}</strong>
           </div>
 
           <div className="detail-item">
-            <span className="detail-label">
-              Priority
-            </span>
-
-            <strong>
-              {ticket.priority}
-            </strong>
+            <span className="detail-label">Priority</span>
+            <strong>{ticket.priority}</strong>
           </div>
 
           <div className="detail-item">
-            <span className="detail-label">
-              Sentiment
-            </span>
-
-            <strong>
-              {ticket.sentiment}
-            </strong>
+            <span className="detail-label">Sentiment</span>
+            <strong>{ticket.sentiment}</strong>
           </div>
 
           <div className="detail-item">
-            <span className="detail-label">
-              Estimated Resolution
-            </span>
-
-            <strong>
-              {ticket.resolution_time_hours} hours
-            </strong>
+            <span className="detail-label">Estimated Resolution</span>
+            <strong>{ticket.resolution_time_hours} hours</strong>
           </div>
 
           <div className="detail-item">
-            <span className="detail-label">
-                Status
-            </span>
-
+            <span className="detail-label">Status</span>
             <select
                 value={ticket.status}
                 onChange={(e) =>
@@ -114,21 +82,15 @@ function TicketDetails({
             </div>
 
           <div className="detail-item">
-            <span className="detail-label">
-              Created
-            </span>
-
+            <span className="detail-label">Created</span>
             <strong>
               {ticket.created_at
                 ? new Date(ticket.created_at).toLocaleString()
                 : "Not available"}
             </strong>
           </div>
-
         </div>
-
       </div>
-
     </section>
   );
 }

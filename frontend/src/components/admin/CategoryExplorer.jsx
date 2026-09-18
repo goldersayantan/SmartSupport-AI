@@ -28,9 +28,7 @@ function CategoryExplorer({
       <div className="section-heading">
         <div>
           <h2>Ticket Categories</h2>
-          <p>
-            Select a category to explore its analytics.
-          </p>
+          <p>Select a category to explore its analytics.</p>
         </div>
       </div>
 
@@ -54,11 +52,8 @@ function CategoryExplorer({
             >
 
               <h3>{category}</h3>
-
               <strong>{categoryCount}</strong>
-
               <span>Tickets</span>
-
             </div>
           );
         })}

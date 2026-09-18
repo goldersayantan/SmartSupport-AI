@@ -5,37 +5,25 @@
 :root {
   --bg-primary: #f5f7ff;
   --bg-secondary: #ffffff;
-
   --text-primary: #151827;
   --text-secondary: #667085;
   --text-muted: #98a2b3;
-
   --primary: #635bff;
   --primary-dark: #5147e8;
   --primary-soft: #eeecff;
-
   --success: #12b76a;
   --warning: #f79009;
   --danger: #f04438;
   --info: #3b82f6;
-
   --border: #e7e9f2;
-
-  --shadow-sm:
-    0 2px 8px rgba(20, 24, 40, 0.04);
-
-  --shadow-md:
-    0 8px 24px rgba(20, 24, 40, 0.07);
-
-  --shadow-lg:
-    0 18px 45px rgba(20, 24, 40, 0.10);
-
+  --shadow-sm: 0 2px 8px rgba(20, 24, 40, 0.04);
+  --shadow-md: 0 8px 24px rgba(20, 24, 40, 0.07);
+  --shadow-lg: 0 18px 45px rgba(20, 24, 40, 0.10);
   --radius-sm: 8px;
   --radius-md: 12px;
   --radius-lg: 16px;
   --radius-xl: 22px;
 }
-
 
 /* =========================
    RESET
@@ -109,20 +97,14 @@ select:focus-visible {
 
 .header {
   height: 76px;
-
   background: rgba(255, 255, 255, 0.88);
-
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-
   border-bottom: 1px solid rgba(231, 233, 242, 0.8);
-
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   padding: 0 6%;
-
   position: sticky;
   top: 0;
   z-index: 100;
@@ -137,13 +119,10 @@ select:focus-visible {
 .logo {
   width: 42px;
   height: 42px;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   border-radius: 12px;
-
   background:
     linear-gradient(
       135deg,
@@ -152,28 +131,22 @@ select:focus-visible {
     );
 
   color: white;
-
   font-size: 19px;
   font-weight: 800;
-
   box-shadow:
     0 6px 16px rgba(99, 91, 255, 0.28);
 }
 
 .brand h1 {
   margin: 0;
-
   font-size: 19px;
   font-weight: 750;
-
   letter-spacing: -0.3px;
 }
 
 .brand p {
   margin: 3px 0 0;
-
   color: var(--text-secondary);
-
   font-size: 12px;
 }
 
@@ -181,32 +154,23 @@ select:focus-visible {
   display: flex;
   align-items: center;
   gap: 8px;
-
   padding: 8px 12px;
-
   border-radius: 999px;
-
   background: #f8f9fc;
   border: 1px solid var(--border);
-
   font-size: 12px;
   font-weight: 600;
-
   color: var(--text-secondary);
 }
 
 .status-dot {
   width: 8px;
   height: 8px;
-
   border-radius: 50%;
-
   background: var(--success);
-
   box-shadow:
     0 0 0 4px rgba(18, 183, 106, 0.12);
 }
-
 
 /* =========================
    DASHBOARD
@@ -214,10 +178,8 @@ select:focus-visible {
 
 .dashboard {
   width: min(1080px, 92%);
-
   margin: 48px auto 60px;
 }
-
 
 /* =========================
    FOOTER
@@ -225,11 +187,8 @@ select:focus-visible {
 
 footer {
   text-align: center;
-
   padding: 32px;
-
   color: var(--text-muted);
-
   font-size: 12px;
 }
 
