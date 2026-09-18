@@ -1,9 +1,7 @@
 .customer-auth-page {
   min-height: 100vh;
-
   display: grid;
   grid-template-columns: 1.05fr 0.95fr;
-
   background: var(--bg-primary);
 }
 
@@ -13,12 +11,9 @@
 
 .customer-auth-left {
   position: relative;
-
   display: flex;
   flex-direction: column;
-
   padding: 42px 8%;
-
   background:
     radial-gradient(
       circle at 20% 20%,
@@ -30,9 +25,7 @@
       #f8f8ff 0%,
       #f1f2ff 100%
     );
-
   border-right: 1px solid var(--border);
-
   overflow: hidden;
 }
 
@@ -40,9 +33,7 @@
   display: flex;
   align-items: center;
   gap: 11px;
-
   color: var(--text-primary);
-
   font-size: 15px;
   font-weight: 750;
 }
@@ -51,70 +42,53 @@
 .mobile-auth-logo {
   width: 40px;
   height: 40px;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   border-radius: 11px;
-
   background: var(--primary);
   color: white;
-
   font-size: 17px;
   font-weight: 800;
-
   box-shadow:
     0 8px 20px rgba(99, 91, 255, 0.20);
 }
 
 .auth-hero {
   max-width: 560px;
-
   margin: auto 0;
   padding: 70px 0;
 }
 
 .auth-eyebrow {
   display: inline-block;
-
   padding: 6px 10px;
-
   border-radius: 999px;
-
   background: var(--primary-soft);
   color: var(--primary);
-
   font-size: 9px;
   font-weight: 800;
-
   letter-spacing: 0.1em;
 }
 
 .auth-hero h1 {
   margin: 18px 0 18px;
-
   font-size: clamp(42px, 4vw, 62px);
   line-height: 1.04;
   letter-spacing: -0.045em;
-
   color: var(--text-primary);
 }
 
 .auth-hero p {
   max-width: 500px;
-
   margin: 0;
-
   font-size: 15px;
   line-height: 1.7;
-
   color: var(--text-secondary);
 }
 
 .auth-features {
   margin-top: 42px;
-
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -129,38 +103,28 @@
 .auth-feature > div:first-child {
   width: 34px;
   height: 34px;
-
   flex-shrink: 0;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   border-radius: 10px;
-
   background: white;
   color: var(--primary);
-
   border: 1px solid var(--border);
 }
 
 .auth-feature strong {
   display: block;
-
   margin-bottom: 3px;
-
   font-size: 12px;
   color: var(--text-primary);
 }
 
 .auth-feature span {
   display: block;
-
   max-width: 360px;
-
   font-size: 11px;
   line-height: 1.5;
-
   color: var(--text-muted);
 }
 
@@ -175,13 +139,10 @@
 
 .customer-auth-right {
   min-height: 100vh;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   padding: 40px;
-
   background: #ffffff;
 }
 
@@ -200,33 +161,25 @@
 
 .auth-card-label {
   display: block;
-
   margin-bottom: 8px;
-
   font-size: 9px;
   font-weight: 800;
-
   color: var(--primary);
-
   letter-spacing: 0.1em;
 }
 
 .auth-card-header h2 {
   margin: 0;
-
   font-size: 29px;
   font-weight: 780;
   letter-spacing: -0.025em;
-
   color: var(--text-primary);
 }
 
 .auth-card-header p {
   margin: 8px 0 0;
-
   font-size: 12px;
   line-height: 1.5;
-
   color: var(--text-muted);
 }
 
@@ -236,40 +189,30 @@
 
 .auth-tabs {
   width: 100%;
-
   display: grid;
   grid-template-columns: 1fr 1fr;
-
   padding: 4px;
-
   margin-bottom: 22px;
-
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
-
   background: #f7f8fc;
 }
 
 .auth-tabs button {
   height: 36px;
-
   border: none;
   border-radius: 8px;
-
   background: transparent;
   color: var(--text-muted);
-
   font-family: inherit;
   font-size: 11px;
   font-weight: 650;
-
   cursor: pointer;
 }
 
 .auth-tabs button.active {
   background: white;
   color: var(--text-primary);
-
   box-shadow: var(--shadow-sm);
 }
 
@@ -280,13 +223,10 @@
 .auth-message {
   margin-bottom: 17px;
   padding: 11px 13px;
-
   display: flex;
   align-items: center;
   gap: 8px;
-
   border-radius: var(--radius-md);
-
   font-size: 11px;
   line-height: 1.4;
 }
@@ -298,14 +238,12 @@
 .auth-error {
   background: rgba(240, 68, 56, 0.06);
   border: 1px solid rgba(240, 68, 56, 0.13);
-
   color: var(--danger);
 }
 
 .auth-success {
   background: rgba(18, 183, 106, 0.06);
   border: 1px solid rgba(18, 183, 106, 0.13);
-
   color: var(--success);
 }
 
@@ -321,32 +259,23 @@
 
 .auth-field label {
   display: block;
-
   margin-bottom: 7px;
-
   font-size: 11px;
   font-weight: 650;
-
   color: var(--text-secondary);
 }
 
 .auth-field input {
   width: 100%;
   height: 44px;
-
   padding: 0 13px;
-
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
-
   background: #fbfcff;
   color: var(--text-primary);
-
   outline: none;
-
   font-family: inherit;
   font-size: 12px;
-
   transition:
     border-color 0.2s ease,
     box-shadow 0.2s ease,
@@ -356,7 +285,6 @@
 .auth-field input:focus {
   background: white;
   border-color: var(--primary);
-
   box-shadow:
     0 0 0 3px rgba(99, 91, 255, 0.08);
 }
@@ -368,26 +296,19 @@
 .auth-submit {
   width: 100%;
   height: 45px;
-
   margin-top: 4px;
-
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 9px;
-
   border: none;
   border-radius: var(--radius-md);
-
   background: var(--primary);
   color: white;
-
   font-family: inherit;
   font-size: 12px;
   font-weight: 700;
-
   cursor: pointer;
-
   transition:
     background 0.2s ease,
     transform 0.2s ease,
@@ -396,9 +317,7 @@
 
 .auth-submit:hover:not(:disabled) {
   background: var(--primary-dark);
-
   transform: translateY(-1px);
-
   box-shadow:
     0 8px 22px rgba(99, 91, 255, 0.20);
 }
@@ -411,12 +330,9 @@
 .auth-spinner {
   width: 13px;
   height: 13px;
-
   border: 2px solid rgba(255, 255, 255, 0.35);
   border-top-color: white;
-
   border-radius: 50%;
-
   animation: auth-spin 0.7s linear infinite;
 }
 
@@ -432,25 +348,19 @@
 
 .auth-switch {
   margin: 20px 0 0;
-
   text-align: center;
-
   font-size: 11px;
   color: var(--text-muted);
 }
 
 .auth-switch button {
   margin-left: 5px;
-
   border: none;
   background: none;
-
   color: var(--primary);
-
   font-family: inherit;
   font-size: 11px;
   font-weight: 700;
-
   cursor: pointer;
 }
 
@@ -465,14 +375,11 @@
 .auth-security {
   margin-top: 26px;
   padding-top: 18px;
-
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 6px;
-
   border-top: 1px solid var(--border);
-
   font-size: 9px;
   color: var(--text-muted);
 }
@@ -512,3 +419,68 @@
   }
 }
 
+
+
+/* --------------------------------
+   Customer / Admin Portal Toggle
+-------------------------------- */
+
+.portal-toggle {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 4px;
+  margin-bottom: 24px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: #f7f8fc;
+}
+
+.portal-toggle button {
+  height: 38px;
+  border: none;
+  border-radius: 9px;
+  background: transparent;
+  color: var(--text-muted);
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.portal-toggle button:hover {
+  color: var(--text-primary);
+}
+
+.portal-toggle button.portal-toggle-active {
+  background: white;
+  color: var(--text-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.portal-toggle button:not(.portal-toggle-active):hover {
+  background: rgba(255, 255, 255, 0.55);
+}
+
+
+/* --------------------------------
+   Responsive
+-------------------------------- */
+
+@media (max-width: 500px) {
+
+  .portal-toggle {
+    margin-bottom: 20px;
+  }
+
+  .portal-toggle button {
+    height: 36px;
+    font-size: 10px;
+  }
+
+}

@@ -236,12 +236,8 @@ function CategoryDetailsPage() {
 
         <section className="category-page-header">
           <div>
-            <span className="category-page-label">
-              Ticket Category
-            </span>
-
+            <span className="category-page-label">Ticket Category</span>
             <h2>{decodedCategory}</h2>
-
             <p>
               Analyze tickets, sentiment, priority,
               status, and estimated resolution time.

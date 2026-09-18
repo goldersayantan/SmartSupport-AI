@@ -234,3 +234,70 @@ button:not(:disabled):active {
     margin: 30px auto 45px;
   }
 }
+
+
+/* ================================
+   ADMIN HEADER ACTIONS
+================================ */
+
+.admin-header-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.admin-logout-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 15px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.admin-logout-button span {
+  font-size: 17px;
+}
+
+.admin-logout-button:hover {
+  background: #fff1f0;
+  color: var(--danger);
+  border-color: #fecdca;
+  transform: translateY(-1px);
+}
+
+.admin-logout-button:active {
+  transform: translateY(0);
+}
+
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 700px) {
+
+  .admin-header-right {
+    gap: 8px;
+  }
+
+  .admin-logout-button {
+    padding: 8px 11px;
+  }
+
+  .admin-logout-button span {
+    display: none;
+  }
+
+}
+

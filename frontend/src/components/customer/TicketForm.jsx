@@ -11,30 +11,16 @@ function TicketForm({
 }) {
   return (
     <section className="ticket-form-card">
-
       <div className="ticket-form-heading">
-
-        <div className="ticket-form-icon">
-          ✦
-        </div>
-
+        <div className="ticket-form-icon">✦</div>
         <div>
           <h3>Submit a Support Ticket</h3>
-
-          <p>
-            Describe your issue and our AI will analyze it
-            automatically.
-          </p>
+          <p>Describe your issue and our AI will analyze it automatically.</p>
         </div>
-
       </div>
 
       <div className="ticket-form-body">
-
-        <label>
-          Your Name
-        </label>
-
+        <label>Your Name</label>
         <input
           type="text"
           value={customerName}
@@ -44,10 +30,7 @@ function TicketForm({
           placeholder="Enter your name..."
         />
 
-        <label>
-          Support Request
-        </label>
-
+        <label>Support Request</label>
         <textarea
           value={ticket}
           onChange={(event) =>
@@ -58,11 +41,7 @@ function TicketForm({
         />
 
         <div className="ticket-form-footer">
-
-          <span className="ticket-character-count">
-            {ticket.length} characters
-          </span>
-
+          <span className="ticket-character-count">{ticket.length} characters</span>
           <button
             type="button"
             className="analyze-ticket-button"
@@ -81,7 +60,6 @@ function TicketForm({
               </>
             )}
           </button>
-
         </div>
 
         {error && (
@@ -89,9 +67,7 @@ function TicketForm({
             {error}
           </div>
         )}
-
       </div>
-
     </section>
   );
 }

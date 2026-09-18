@@ -13,12 +13,9 @@ function ExampleTickets({ onSelect }) {
 
       <div className="example-heading">
         <span>💡</span>
-
         <div>
           <strong>Try an example</strong>
-          <p>
-            Click an example to quickly test the AI.
-          </p>
+          <p>Click an example to quickly test the AI.</p>
         </div>
       </div>
 

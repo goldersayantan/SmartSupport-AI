@@ -4,10 +4,8 @@
 
 .customer-page {
   min-height: 100vh;
-
   display: flex;
   flex-direction: column;
-
   background: var(--bg-primary);
 }
 
@@ -18,10 +16,8 @@
 
 .customer-dashboard {
   width: min(1120px, calc(100% - 48px));
-
   margin: 0 auto;
   padding: 36px 0 60px;
-
   flex: 1;
 }
 
@@ -36,37 +32,27 @@
 
 .welcome-label {
   display: inline-block;
-
   margin-bottom: 7px;
-
   color: var(--primary);
-
   font-size: 10px;
   font-weight: 800;
-
   letter-spacing: 0.1em;
 }
 
 .customer-welcome h2 {
   margin: 0;
-
   color: var(--text-primary);
-
   font-size: 30px;
   font-weight: 760;
-
   letter-spacing: -0.8px;
 }
 
 .customer-welcome p {
   margin: 8px 0 0;
-
   color: var(--text-secondary);
-
   font-size: 14px;
   line-height: 1.6;
 }
-
 
 /* =========================
    FOOTER
@@ -74,19 +60,14 @@
 
 .customer-footer {
   padding: 20px;
-
   text-align: center;
-
   background: var(--bg-secondary);
-
   border-top: 1px solid var(--border);
 }
 
 .customer-footer p {
   margin: 0;
-
   color: var(--text-muted);
-
   font-size: 10px;
 }
 
@@ -98,7 +79,6 @@
 @media (max-width: 700px) {
   .customer-dashboard {
     width: calc(100% - 28px);
-
     padding: 24px 0 40px;
   }
 
@@ -109,5 +89,218 @@
   .customer-welcome p {
     font-size: 13px;
   }
+}
+
+
+/* =========================
+   PREVIOUS TICKETS
+========================= */
+
+.previous-tickets {
+  margin-top: 34px;
+}
+
+.previous-tickets-header {
+  margin-bottom: 16px;
+}
+
+.previous-tickets-label {
+  display: inline-block;
+  margin-bottom: 6px;
+  color: var(--primary);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+
+.previous-tickets-header h3 {
+  margin: 0;
+  color: var(--text-primary);
+  font-size: 20px;
+  font-weight: 750;
+  letter-spacing: -0.3px;
+}
+
+
+/* =========================
+   TICKET LIST
+========================= */
+
+.previous-tickets-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* =========================
+   TICKET CARD
+========================= */
+
+.previous-ticket-card {
+  padding: 20px 22px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+
+  transition:
+    box-shadow 0.2s ease,
+    transform 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.previous-ticket-card:hover {
+  transform: translateY(-1px);
+  border-color: #dcdff0;
+  box-shadow: var(--shadow-md);
+}
+
+
+/* =========================
+   TICKET DESCRIPTION
+========================= */
+
+.previous-ticket-description {
+  margin: 0;
+  color: var(--text-primary);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.6;
+}
+
+
+/* =========================
+   TICKET META
+========================= */
+
+.previous-ticket-meta {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+}
+
+.previous-ticket-category,
+.previous-ticket-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.previous-ticket-category span,
+.previous-ticket-status span {
+  color: var(--text-muted);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.previous-ticket-category strong {
+  color: var(--text-secondary);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+
+/* =========================
+   STATUS BADGE
+========================= */
+
+.ticket-status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+
+/* Open */
+
+.ticket-status-badge.status-open {
+  background: #fff4e5;
+  color: #b54708;
+}
+
+/* In Progress */
+
+.ticket-status-badge.status-in-progress {
+  background: #eef4ff;
+  color: #175cd3;
+}
+
+/* Resolved */
+
+.ticket-status-badge.status-resolved {
+  background: #ecfdf3;
+  color: #027a48;
+}
+
+/* Escalated */
+
+.ticket-status-badge.status-escalated {
+  background: #fef3f2;
+  color: #b42318;
+}
+
+/* =========================
+   LOADING / EMPTY / ERROR
+========================= */
+
+.previous-tickets-message {
+  padding: 28px;
+  text-align: center;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+
+.previous-tickets-message h4 {
+  margin: 0;
+  color: var(--text-primary);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.previous-tickets-message p {
+  margin: 6px 0 0;
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+.previous-tickets-error {
+  color: var(--danger);
+  font-size: 12px;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 700px) {
+
+  .previous-tickets {
+    margin-top: 28px;
+  }
+
+  .previous-ticket-card {
+    padding: 17px;
+  }
+
+  .previous-ticket-meta {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .previous-ticket-category,
+  .previous-ticket-status {
+    width: 100%;
+    justify-content: space-between;
+  }
+
 }
 

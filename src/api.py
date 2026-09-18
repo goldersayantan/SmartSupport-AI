@@ -4,7 +4,7 @@ from pydantic import BaseModel, EmailStr
 from sqlalchemy.orm import Session
 from src.ticket_prediction import predict_ticket
 from src.database import SessionLocal, Ticket
-from src.auth import (hash_password, verify_password, create_access_token, get_current_user)
+from src.auth import (hash_password, verify_password, create_access_token, get_current_user, get_current_admin)
 from src.database import User
 from fastapi.security import OAuth2PasswordRequestForm
 from fastapi import HTTPException
@@ -93,7 +93,8 @@ def predict(
 
 @app.get("/tickets")
 def get_tickets(
-    db: Session = Depends(get_db)
+    db: Session = Depends(get_db),
+    current_admin = Depends(get_current_admin)
 ):
 
     tickets = (
@@ -117,6 +118,7 @@ def get_tickets(
         for ticket in tickets
     ]
 
+
 class StatusUpdate(BaseModel):
     status: str
 
@@ -125,7 +127,8 @@ class StatusUpdate(BaseModel):
 def update_ticket_status(
     ticket_id: int,
     request: StatusUpdate,
-    db: Session = Depends(get_db)
+    db: Session = Depends(get_db),
+    current_admin = Depends(get_current_admin)
 ):
 
     ticket = db.query(Ticket).filter(
@@ -305,3 +308,5 @@ def get_my_tickets(
         }
         for ticket in tickets
     ]
+
+

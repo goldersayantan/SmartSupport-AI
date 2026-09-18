@@ -1,23 +1,17 @@
 .ticket-analysis {
   margin-top: 24px;
-
   background: var(--bg-secondary);
-
   border: 1px solid var(--border);
   border-radius: var(--radius-xl);
-
   box-shadow: var(--shadow-md);
-
   overflow: hidden;
 }
 
 .analysis-header {
   padding: 26px 28px;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   border-bottom: 1px solid var(--border);
 }
 
@@ -25,41 +19,33 @@
   font-size: 10px;
   font-weight: 750;
   letter-spacing: 0.08em;
-
   color: var(--primary);
 }
 
 .analysis-header h2 {
   margin: 4px 0 4px;
-
   font-size: 19px;
   font-weight: 750;
-
   color: var(--text-primary);
 }
 
 .analysis-header p {
   margin: 0;
-
   font-size: 12px;
   color: var(--text-muted);
 }
 
 .analysis-success {
   padding: 8px 12px;
-
   border-radius: 999px;
-
   background: rgba(18, 183, 106, 0.08);
   color: var(--success);
-
   font-size: 11px;
   font-weight: 700;
 }
 
 .analysis-grid {
   padding: 24px;
-
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 14px;
@@ -67,29 +53,22 @@
 
 .analysis-card {
   padding: 18px;
-
   display: flex;
   align-items: flex-start;
   gap: 12px;
-
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-
   background: #fbfcff;
 }
 
 .analysis-card-icon {
   width: 36px;
   height: 36px;
-
   flex-shrink: 0;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   border-radius: 10px;
-
   font-size: 16px;
   font-weight: 700;
 }
@@ -120,38 +99,29 @@
 
 .analysis-card span {
   display: block;
-
   font-size: 10px;
   color: var(--text-muted);
 }
 
 .analysis-card strong {
   display: block;
-
   margin-top: 5px;
-
   font-size: 13px;
   font-weight: 700;
-
   color: var(--text-primary);
-
   overflow-wrap: anywhere;
 }
 
 .analysis-card small {
   display: block;
-
   margin-top: 4px;
-
   font-size: 10px;
   color: var(--text-muted);
 }
 
 .analysis-badge {
   width: fit-content;
-
   padding: 4px 8px;
-
   border-radius: 999px;
 }
 
@@ -188,9 +158,7 @@
 .submitted-ticket {
   margin: 0 24px 24px;
   padding: 18px;
-
   border-radius: var(--radius-lg);
-
   background: #f8f9fd;
   border: 1px solid var(--border);
 }
@@ -205,10 +173,8 @@
 
 .submitted-ticket p {
   margin: 8px 0 0;
-
   font-size: 13px;
   line-height: 1.6;
-
   color: var(--text-secondary);
 }
 
