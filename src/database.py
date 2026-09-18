@@ -1,4 +1,13 @@
-from sqlalchemy import create_engine, Column, Integer, String, Float, DateTime
+from sqlalchemy import (
+    create_engine,
+    Column,
+    Integer,
+    String,
+    Float,
+    DateTime,
+    ForeignKey
+)
+
 from sqlalchemy.orm import declarative_base, sessionmaker
 from datetime import datetime
 
@@ -6,7 +15,9 @@ DATABASE_URL = "sqlite:///./smartsupport.db"
 
 engine = create_engine(
     DATABASE_URL,
-    connect_args={"check_same_thread": False}
+    connect_args={
+        "check_same_thread": False
+    }
 )
 
 SessionLocal = sessionmaker(
@@ -18,22 +29,42 @@ SessionLocal = sessionmaker(
 Base = declarative_base()
 
 
-class Ticket(Base):
-    __tablename__ = "tickets"
+# --------------------------------
+# User Model
+# --------------------------------
 
-    id = Column(Integer, primary_key=True, index=True)
+class User(Base):
 
-    customer_name = Column(String, default="Anonymous")
+    __tablename__ = "users"
 
-    ticket = Column(String, nullable=False)
+    id = Column(
+        Integer,
+        primary_key=True,
+        index=True
+    )
 
-    category = Column(String)
-    priority = Column(String)
-    sentiment = Column(String)
+    name = Column(
+        String,
+        nullable=False
+    )
 
-    resolution_time_hours = Column(Float)
+    email = Column(
+        String,
+        unique=True,
+        index=True,
+        nullable=False
+    )
 
-    status = Column(String, default="Open")
+    password_hash = Column(
+        String,
+        nullable=False
+    )
+
+    role = Column(
+        String,
+        default="customer",
+        nullable=False
+    )
 
     created_at = Column(
         DateTime,
@@ -41,4 +72,60 @@ class Ticket(Base):
     )
 
 
-Base.metadata.create_all(bind=engine)
+# --------------------------------
+# Ticket Model
+# --------------------------------
+
+class Ticket(Base):
+
+    __tablename__ = "tickets"
+
+    id = Column(
+        Integer,
+        primary_key=True,
+        index=True
+    )
+
+    customer_name = Column(
+        String,
+        default="Anonymous"
+    )
+
+    customer_id = Column(
+        Integer,
+        ForeignKey("users.id"),
+        nullable=True
+    )
+
+    ticket = Column(
+        String,
+        nullable=False
+    )
+
+    category = Column(String)
+
+    priority = Column(String)
+
+    sentiment = Column(String)
+
+    resolution_time_hours = Column(Float)
+
+    status = Column(
+        String,
+        default="Open"
+    )
+
+    created_at = Column(
+        DateTime,
+        default=datetime.utcnow
+    )
+
+
+# --------------------------------
+# Create Tables
+# --------------------------------
+
+Base.metadata.create_all(
+    bind=engine
+)
+

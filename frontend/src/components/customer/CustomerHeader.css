@@ -1,0 +1,167 @@
+.customer-header {
+  width: 100%;
+  padding: 20px 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border);
+}
+
+.customer-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.customer-logo {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+
+  background: var(--primary);
+  color: white;
+
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.customer-brand h1 {
+  margin: 0;
+
+  font-size: 17px;
+  font-weight: 750;
+  color: var(--text-primary);
+}
+
+.customer-brand p {
+  margin: 3px 0 0;
+
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.customer-header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.system-status {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  color: var(--success);
+}
+
+.system-status-dot {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+  background: var(--success);
+}
+
+.customer-profile {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.customer-avatar {
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: var(--primary-soft);
+  color: var(--primary);
+
+  font-size: 13px;
+  font-weight: 750;
+}
+
+.customer-profile-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.customer-profile-info strong {
+  font-size: 12px;
+  color: var(--text-primary);
+}
+
+.customer-profile-info span {
+  margin-top: 2px;
+
+  font-size: 10px;
+  color: var(--text-muted);
+}
+
+.customer-logout {
+  padding: 9px 15px;
+
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+
+  font-size: 12px;
+  font-weight: 650;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.customer-logout:hover {
+  background: var(--primary-soft);
+  color: var(--primary);
+  border-color: #d9dcf0;
+
+  transform: translateY(-1px);
+}
+
+@media (max-width: 900px) {
+  .customer-header {
+    padding: 18px 24px;
+  }
+
+  .system-status {
+    display: none;
+  }
+
+  .customer-profile-info {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .customer-header {
+    padding: 16px;
+  }
+
+  .customer-brand p {
+    display: none;
+  }
+}
