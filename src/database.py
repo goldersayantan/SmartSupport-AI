@@ -1,24 +1,40 @@
-from sqlalchemy import (
-    create_engine,
-    Column,
-    Integer,
-    String,
-    Float,
-    DateTime,
-    ForeignKey
-)
+import os
 
-from sqlalchemy.orm import declarative_base, sessionmaker
+from dotenv import load_dotenv
+from sqlalchemy import (create_engine, Column, Integer, String, Float, DateTime, ForeignKey)
+from sqlalchemy.orm import ( declarative_base, sessionmaker)
 from datetime import datetime
 
-DATABASE_URL = "sqlite:///./smartsupport.db"
+# --------------------------------
+# Environment Variables
+# --------------------------------
+
+load_dotenv()
+DATABASE_URL = os.getenv("DATABASE_URL")
+if not DATABASE_URL:
+    raise RuntimeError(
+        "DATABASE_URL is not configured."
+    )
+
+# --------------------------------
+# Database Engine
+# --------------------------------
+
+connect_args = {}
+
+if DATABASE_URL.startswith("sqlite"):
+    connect_args = {
+        "check_same_thread": False
+    }
 
 engine = create_engine(
     DATABASE_URL,
-    connect_args={
-        "check_same_thread": False
-    }
+    connect_args=connect_args
 )
+
+# --------------------------------
+# Session
+# --------------------------------
 
 SessionLocal = sessionmaker(
     autocommit=False,
@@ -28,98 +44,35 @@ SessionLocal = sessionmaker(
 
 Base = declarative_base()
 
-
 # --------------------------------
 # User Model
 # --------------------------------
 
 class User(Base):
-
     __tablename__ = "users"
-
-    id = Column(
-        Integer,
-        primary_key=True,
-        index=True
-    )
-
-    name = Column(
-        String,
-        nullable=False
-    )
-
-    email = Column(
-        String,
-        unique=True,
-        index=True,
-        nullable=False
-    )
-
-    password_hash = Column(
-        String,
-        nullable=False
-    )
-
-    role = Column(
-        String,
-        default="customer",
-        nullable=False
-    )
-
-    created_at = Column(
-        DateTime,
-        default=datetime.utcnow
-    )
-
+    id = Column(Integer, primary_key=True, index=True)
+    name = Column(String, nullable=False)
+    email = Column(String, unique=True, index=True, nullable=False)
+    password_hash = Column(String, nullable=False)
+    role = Column(String, default="customer", nullable=False)
+    created_at = Column(DateTime, default=datetime.utcnow)
 
 # --------------------------------
 # Ticket Model
 # --------------------------------
 
 class Ticket(Base):
-
     __tablename__ = "tickets"
-
-    id = Column(
-        Integer,
-        primary_key=True,
-        index=True
-    )
-
-    customer_name = Column(
-        String,
-        default="Anonymous"
-    )
-
-    customer_id = Column(
-        Integer,
-        ForeignKey("users.id"),
-        nullable=True
-    )
-
-    ticket = Column(
-        String,
-        nullable=False
-    )
-
+    id = Column(Integer, primary_key=True,index=True)
+    customer_name = Column(String, default="Anonymous")
+    customer_id = Column(Integer, ForeignKey("users.id"), nullable=True)
+    ticket = Column(String, nullable=False)
     category = Column(String)
-
     priority = Column(String)
-
     sentiment = Column(String)
-
     resolution_time_hours = Column(Float)
-
-    status = Column(
-        String,
-        default="Open"
-    )
-
-    created_at = Column(
-        DateTime,
-        default=datetime.utcnow
-    )
-
+    status = Column(String, default="Open")
+    created_at = Column(DateTime, default=datetime.utcnow)
 
 # --------------------------------
 # Create Tables

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+const API_URL = import.meta.env.VITE_API_URL || "http://127.0.0.1:8000";
 
 import "./App.css";
 import "./CustomerPage.css";
@@ -71,7 +72,7 @@ function CustomerPage() {
     try {
 
       const response = await fetch(
-        "http://127.0.0.1:8000/tickets/my-tickets",
+        `${API_URL}/tickets/my-tickets`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -151,7 +152,7 @@ function CustomerPage() {
 
     try {
       const response = await fetch(
-        "http://127.0.0.1:8000/predict",
+        `${API_URL}/predict`,
         {
           method: "POST",
 

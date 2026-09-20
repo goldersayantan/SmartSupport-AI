@@ -8,19 +8,22 @@ from src.auth import (hash_password, verify_password, create_access_token, get_c
 from src.database import User
 from fastapi.security import OAuth2PasswordRequestForm
 from fastapi import HTTPException
-
+import os
+from dotenv import load_dotenv
 
 app = FastAPI(title="SmartSupport AI")
 
+load_dotenv()
+
+FRONTEND_URL = os.getenv("FRONTEND_URL", "http://localhost:5173")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],
+    allow_origins=[FRONTEND_URL],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
 
 class TicketRequest(BaseModel):
     ticket: str

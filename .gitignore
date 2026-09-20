@@ -9,10 +9,6 @@ venv/
 env/
 ENV/
 
-# ML models
-models/*.pkl
-models/*.joblib
-
 # Database
 *.db
 *.sqlite

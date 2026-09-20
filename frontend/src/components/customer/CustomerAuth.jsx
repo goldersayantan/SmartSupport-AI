@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+const API_URL = import.meta.env.VITE_API_URL || "http://127.0.0.1:8000";
 
 import "./CustomerAuth.css";
 
@@ -23,7 +24,7 @@ function CustomerAuth({ onLogin }) {
     try {
       if (mode === "signup") {
         const response = await fetch(
-          "http://127.0.0.1:8000/auth/signup",
+          `${API_URL}/auth/signup`,
           {
             method: "POST",
             headers: {
@@ -54,7 +55,7 @@ function CustomerAuth({ onLogin }) {
         setPassword("");
       } else {
         const response = await fetch(
-          "http://127.0.0.1:8000/auth/login",
+          `${API_URL}/auth/login`,
           {
             method: "POST",
             headers: {

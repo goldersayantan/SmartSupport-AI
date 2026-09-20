@@ -1,11 +1,11 @@
 from datetime import datetime, timedelta, timezone
-
 from jose import jwt, JWTError
 from pwdlib import PasswordHash
-
 from fastapi import Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer
 
+import os
+from dotenv import load_dotenv
 
 # --------------------------------
 # Password Hashing
@@ -13,10 +13,8 @@ from fastapi.security import OAuth2PasswordBearer
 
 password_hash = PasswordHash.recommended()
 
-
 def hash_password(password: str) -> str:
     return password_hash.hash(password)
-
 
 def verify_password(
     plain_password: str,
@@ -27,17 +25,28 @@ def verify_password(
         hashed_password
     )
 
-
 # --------------------------------
 # JWT Configuration
 # --------------------------------
 
-SECRET_KEY = "change-this-secret-key-later"
+load_dotenv()
 
-ALGORITHM = "HS256"
+SECRET_KEY = os.getenv("SECRET_KEY")
+ALGORITHM = os.getenv(
+    "ALGORITHM",
+    "HS256"
+)
+ACCESS_TOKEN_EXPIRE_MINUTES = int(
+    os.getenv(
+        "ACCESS_TOKEN_EXPIRE_MINUTES",
+        "60"
+    )
+)
 
-ACCESS_TOKEN_EXPIRE_MINUTES = 60
-
+if not SECRET_KEY:
+    raise RuntimeError(
+        "SECRET_KEY is not configured."
+    )
 
 # --------------------------------
 # Create JWT
@@ -64,7 +73,6 @@ def create_access_token(
         algorithm=ALGORITHM
     )
 
-
 # --------------------------------
 # JWT Authentication
 # --------------------------------
@@ -72,7 +80,6 @@ def create_access_token(
 oauth2_scheme = OAuth2PasswordBearer(
     tokenUrl="/auth/token"
 )
-
 
 def get_current_user(
     token: str = Depends(oauth2_scheme)
