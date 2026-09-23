@@ -53,6 +53,9 @@ def home():
         "message": "SmartSupport AI API is running"
     }
 
+@app.head("/")
+def head():
+    return
 
 @app.post("/predict")
 def predict(
